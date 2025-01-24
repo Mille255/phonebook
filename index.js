@@ -6,7 +6,7 @@ const mongoose = require('mongoose')
 const app = express()
 const Person = require('./models/person')
 
-app.use(express.static('build'))
+app.use(express.static('dist'))
 app.use(express.json())
 
 app.use(cors())
@@ -137,7 +137,7 @@ app.post('/api/persons', (request, response, next) => {
   }
   app.use(errorHandler)  
 
-const PORT = process.env.PORT
+const PORT = process.env.PORT || 3001
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)
 })
